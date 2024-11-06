@@ -1,0 +1,452 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- --------- UNICONS ---------- -->
+    <link
+      rel="stylesheet"
+      href="https://unicons.iconscout.com/release/v4.0.8/css/line.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unicons.iconscout.com/release/v4.0.8/css/solid.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unicons.iconscout.com/release/v4.0.0/css/line.css"
+    />
+
+    <!-- --------- CSS ---------- -->
+    <!-- tailwind CSS -->
+    <link rel="stylesheet" href="css/output.css" />
+
+    <!-- Alpine Js -->
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.1/dist/cdn.min.js"
+    ></script>
+
+    <!-- --------- FAVICON ---------- -->
+    <link
+      rel="shortcut icon"
+      href="assets/images/favicon.png"
+      type="image/x-icon"
+    />
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+    </style>
+    <title>Personal Portofolio</title>
+  </head>
+  <body class="bg-first text-gray-900">
+    <div class="container mx-auto p-4">
+      <!-- --------------- HEADER --------------- -->
+      <nav
+  id="header"
+  x-data="{ isOpen: false, scrolled: false }"
+  x-init="window.pageYOffset > 50 ? scrolled = true : scrolled = false; window.addEventListener('scroll', () => { scrolled = window.pageYOffset > 50 })"
+  :class="scrolled ? 'bg-white shadow-lg text-gray-900 h-16' : 'bg-first h-24 text-gray-900'"
+  class="fixed top-6 left-10 right-10 rounded-full z-50 transition-all duration-300"
+>
+  <div class="container mx-auto px-4">
+    <div class="flex justify-between items-center h-full">
+      <div class="flex items-center space-x-2">
+        <a href="#home">
+          <p class="text-2xl md:text-3xl font-bold text-hover">Bintang</p>
+        </a>
+        <span class="text-blue-500">.</span>
+      </div>
+
+      <div
+        class="hidden md:flex items-center space-x-10 md:space-x-20 font-medium"
+      >
+        <a
+          href="#home"
+          class="hover:text-blue-500 transition-all duration-300 ease-in-out text-base text-hover"
+          >Home</a
+        >
+        <div
+          x-data="{ open: false }"
+          @mouseenter="open = true"
+          @mouseleave="open = false"
+          class="relative"
+        >
+          <a
+            href="#about"
+            class="hover:text-blue-500 transition-all duration-300 ease-in-out text-base text-hover"
+            >About</a
+          >
+          <div
+            x-show="open"
+            x-transition:enter="transition ease-out duration-200"
+            x-transition:enter-start="opacity-0 transform scale-95"
+            x-transition:enter-end="opacity-100 transform scale-100"
+            x-transition:leave="transition ease-in duration-150"
+            x-transition:leave-start="opacity-100 transform scale-100"
+            x-transition:leave-end="opacity-0 transform scale-95"
+            class="absolute left-0 mt-2 w-48 bg-second shadow-lg rounded-md z-10 text-sm max-h-20 overflow-y-auto"
+          >
+            <a
+              href="#about"
+              class="block px-3 py-1.5 hover:bg-hover transition-all duration-300 text-sm text-hover h-10 hover:text-white"
+              >Perkenalan</a
+            >
+            <a
+              href="#about"
+              class="block px-3 py-1.5 hover:bg-hover transition-all duration-300 text-sm text-hover h-10 hover:text-white"
+              >Skills</a
+            >
+          </div>
+        </div>
+
+        <div
+          x-data="{ open: false }"
+          @mouseenter="open = true"
+          @mouseleave="open = false"
+          class="relative"
+        >
+          <a
+            href="#projects"
+            class="hover:text-blue-500 transition-all duration-300 ease-in-out text-base text-hover"
+            >Projects</a
+          >
+          <div
+            x-show="open"
+            x-transition:enter="transition ease-out duration-200"
+            x-transition:enter-start="opacity-0 transform scale-95"
+            x-transition:enter-end="opacity-100 transform scale-100"
+            x-transition:leave="transition ease-in duration-150"
+            x-transition:leave-start="opacity-100 transform scale-100"
+            x-transition:leave-end="opacity-0 transform scale-95"
+            class="absolute left-0 mt-2 w-64 bg-second shadow-lg rounded-md z-10 text-sm max-h-30 overflow-y-auto"
+          >
+            <a
+              href="https://embed.figma.com/proto/SgA70o8mUZaBF2xMDQ6Hbx/Blue-Laggon?node-id=3-2&starting-point-node-id=3%3A2&embed-host=share"
+              class="block px-3 py-1.5 text-hover hover:bg-hover transition-all duration-300 text-sm h-10 hover:text-white"
+              >Blue Lagoon Website Landing Page</a
+            >
+            <a
+              href="https://www.figma.com/design/6kTECDzOTnwMPwj1FhwzQF/Rill?node-id=0-1&t=bKNxVERoFRBKlzpp-1"
+              class="block px-3 py-1.5 text-hover hover:bg-hover transition-all duration-300 text-sm h-10 hover:text-white"
+              >Cikrak Mobile Aplication</a
+            >
+            <a
+              href="#project3"
+              class="block px-3 py-1.5 text-hover hover:bg-hover transition-all duration-300 text-sm h-10 hover:text-white"
+              >Project 3</a
+            >
+          </div>
+        </div>
+
+        <div
+          x-data="{ open: false }"
+          @mouseenter="open = true"
+          @mouseleave="open = false"
+          class="relative"
+        >
+          <a
+            href="#contact"
+            class="hover:text-blue-500 transition-all duration-300 ease-in-out text-base text-hover"
+            >Contact</a
+          >
+          <div
+            x-show="open"
+            x-transition:enter="transition ease-out duration-200"
+            x-transition:enter-start="opacity-0 transform scale-95"
+            x-transition:enter-end="opacity-100 transform scale-100"
+            x-transition:leave="transition ease-in duration-150"
+            x-transition:leave-start="opacity-100 transform scale-100"
+            x-transition:leave-end="opacity-0 transform scale-95"
+            class="absolute left-0 mt-2 w-48 bg-second shadow-lg rounded-md z-10 text-sm max-h-40 overflow-y-auto"
+          >
+            <a
+              href="https://www.instagram.com/muhammad_bintang.k/profilecard/?igsh=MXhpYXhnZjB5eWtv"
+              target="_blank"
+              class="block px-3 py-1.5 text-hover hover:bg-hover transition-all duration-300 text-sm h-10 hover:text-white"
+            >
+              <i class="uil uil-instagram mr-2"></i> Instagram
+            </a>
+            <a
+              href="https://wa.me/62895421827822"
+              target="_blank"
+              class="block px-3 py-1.5 text-hover hover:bg-hover transition-all duration-300 text-sm h-10 hover:text-white"
+            >
+              <i class="uil uil-whatsapp mr-2"></i> WhatsApp
+            </a>
+            <a
+              href="https://github.com/muhammadBintang-k"
+              target="_blank"
+              class="block px-3 py-1.5 text-hover hover:bg-hover transition-all duration-300 text-sm h-10 hover:text-white"
+            >
+              <i class="uil uil-github mr-2"></i> GitHub
+            </a>
+            <a
+              href="https://www.linkedin.com/in/muhammad-bintang-b9b437292?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BQqWVi1h5QF6PFtqyeQeSng%3D%3D"
+              target="_blank"
+              class="block px-3 py-1.5 text-hover hover:bg-hover transition-all duration-300 text-sm h-10 hover:text-white"
+            >
+              <i class="uil uil-linkedin-alt mr-2"></i> LinkedIn
+            </a>
+          </div>
+        </div>
+        <div
+          x-data="{ open: false }"
+          @mouseenter="open = true"
+          @mouseleave="open = false"
+          class="relative"
+        >
+          <a
+            href="#about"
+            class="hover:text-blue-500 transition-all duration-300 ease-in-out text-base text-hover"
+            >Tutorial</a
+          >
+          <div
+            x-show="open"
+            x-transition:enter="transition ease-out duration-200"
+            x-transition:enter-start="opacity-0 transform scale-95"
+            x-transition:enter-end="opacity-100 transform scale-100"
+            x-transition:leave="transition ease-in duration-150"
+            x-transition:leave-start="opacity-100 transform scale-100"
+            x-transition:leave-end="opacity-0 transform scale-95"
+            class="absolute left-0 mt-2 w-48 bg-second shadow-lg rounded-md z-10 text-sm max-h-20 overflow-y-auto"
+          >
+            <a
+              href="table.html"
+              class="block px-3 py-1.5 hover:bg-hover transition-all duration-300 text-sm text-hover h-10 hover:text-white"
+              >Tutorial Tabel</a
+            >
+            <a
+              href="form.html"
+              class="block px-3 py-1.5 hover:bg-hover transition-all duration-300 text-sm text-hover h-10 hover:text-white"
+              >Tutorial Form</a
+            >
+          </div>
+        </div>
+      </div>
+
+      <div class="flex items-center space-x-4">
+        <button
+          class="px-4 md:px-6 py-2 bg-button text-white rounded-md hover:bg-hover transition-all duration-300 ease-in-out transform hover:scale-105"
+        >
+          <a
+            href="https://drive.google.com/file/d/1izLpX0Uzcwj6PafhUrRsD9L_KfrWd7YZ/view?usp=sharing"
+            target="_blank"
+            >Download CV</a
+          >
+        </button>
+        <button @click="isOpen = !isOpen" class="md:hidden focus:outline-none">
+          <i
+            :class="isOpen ? 'uil uil-times text-3xl' : 'uil uil-bars text-3xl'"
+            class="transition-all duration-300 ease-in-out"
+          ></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile menu -->
+  <div
+    x-show="isOpen"
+    @click.away="isOpen = false"
+    x-transition:enter="transition ease-out duration-300"
+    x-transition:enter-start="opacity-0 transform -translate-y-10"
+    x-transition:enter-end="opacity-100 transform translate-y-0"
+    x-transition:leave="transition ease-in duration-200"
+    x-transition:leave-start="opacity-100 transform translate-y-0"
+    x-transition:leave-end="opacity-0 transform -translate-y-10"
+    class="absolute top-16 left-0 right-0 bg-first z-50 rounded-lg shadow-lg md:hidden"
+  >
+    <a
+      href="#home"
+      class="block py-4 px-6 text-base text-gray-800 hover:bg-gray-200 transition duration-300"
+      @click="isOpen = false"
+      >Home</a
+    >
+    <a
+      href="#about"
+      class="block py-4 px-6 text-base text-gray-800 hover:bg-gray-200 transition duration-300"
+      @click="isOpen = false"
+      >About</a
+    >
+    <a
+      href="#projects"
+      class="block py-4 px-6 text-base text-gray-800 hover:bg-gray-200 transition duration-300"
+      @click="isOpen = false"
+      >Projects</a
+    >
+    <a
+      href="#contact"
+      class="block py-4 px-6 text-base text-gray-800 hover:bg-gray-200 transition duration-300"
+      @click="isOpen = false"
+      >Contact</a
+    >
+  </div>
+</nav>
+
+        
+      <section class="pt-24 container">
+        <!-- Form login, method POST digunakan untuk mengirim data secara aman -->
+        <form
+          action="/login"
+          method="POST"
+          class="bg-white shadow-md rounded-lg p-6 max-w-md mx-auto border border-gray-200"
+        >
+          <h2 class="text-2xl font-bold text-hover mb-4 text-center">Login</h2>
+          <!-- Input username -->
+          <label for="username" class="block text-gray-700 font-medium mb-2"
+            >Username:</label
+          >
+          <input
+            type="text"
+            id="username"
+            name="username"
+            required
+            class="w-full px-4 py-2 mb-4 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-button focus:border-transparent"
+          />
+          <!-- Input password -->
+          <label for="password" class="block text-gray-700 font-medium mb-2"
+            >Password:</label
+          >
+          <input
+            type="password"
+            id="password"
+            name="password"
+            required
+            class="w-full px-4 py-2 mb-6 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-button focus:border-transparent"
+          />
+          <!-- Tombol submit dan reset -->
+          <div class="flex justify-between">
+            <input
+              type="submit"
+              value="Login"
+              class="px-4 py-2 bg-button text-white rounded-md hover:bg-hover transition duration-300 ease-in-out"
+            />
+            <input
+              type="reset"
+              value="Reset"
+              class="px-4 py-2 bg-gray-300 text-gray-700 rounded-md hover:bg-gray-400 transition duration-300 ease-in-out"
+            />
+          </div>
+        </form>
+      </section>
+
+      <section class="bg-white shadow-md rounded-lg p-6 max-w- mx-auto border border-gray-200">
+        <h2 class="text-2xl font-bold text-hover mb-4">Tutorial: Cara Membuat Form Login</h2>
+        <p class="text-lg text-gray-700 mb-4">
+          Berikut adalah langkah-langkah untuk membuat form login sederhana menggunakan HTML dan Tailwind CSS:
+        </p>
+        <ol class="list-decimal pl-5 space-y-8">
+          <li class="text-md text-gray-700">
+            Buat struktur dasar form dengan elemen-elemen seperti `form`, `label`, `input`, dan tombol submit.
+            <pre class="bg-gray-100 rounded-lg p-4 overflow-x-auto mt-2">
+              <code>
+    &lt;form action="/login" method="POST"&gt;
+      &lt;label for="username"&gt;Username:&lt;/label&gt;
+      &lt;input type="text" id="username" name="username" required&gt;
+      
+      &lt;label for="password"&gt;Password:&lt;/label&gt;
+      &lt;input type="password" id="password" name="password" required&gt;
+      
+      &lt;input type="submit" value="Login"&gt;
+      &lt;input type="reset" value="Reset"&gt;
+    &lt;/form&gt;
+              </code>
+            </pre>
+          </li>
+          <li class="text-md text-gray-700">
+            Tambahkan atribut `action` pada elemen `<form>` untuk menentukan endpoint di mana data akan dikirim, dan gunakan metode `POST`.
+            <pre class="bg-gray-100 rounded-lg p-4 overflow-x-auto mt-2">
+              <code>
+    &lt;form action="/login" method="POST"&gt;
+      ...
+    &lt;/form&gt;
+              </code>
+            </pre>
+          </li>
+          <li class="text-md text-gray-700">
+            Gunakan Tailwind CSS untuk memperindah form, dengan kelas-kelas seperti `w-full` untuk input yang memenuhi lebar container, dan `focus:outline-none` untuk efek fokus yang lebih interaktif.
+            <pre class="bg-gray-100 rounded-lg p-4 overflow-x-auto mt-2">
+              <code>
+    &lt;input
+      type="text"
+      id="username"
+      name="username"
+      required
+      class="w-full px-4 py-2 mb-4 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-button focus:border-transparent"
+    /&gt;
+              </code>
+            </pre>
+          </li>
+          <li class="text-md text-gray-700">
+            Terapkan styling pada tombol menggunakan Tailwind, dengan memberikan efek hover dan transisi agar tombol lebih menarik.
+            <pre class="bg-gray-100 rounded-lg p-4 overflow-x-auto mt-2">
+              <code>
+    &lt;input
+      type="submit"
+      value="Login"
+      class="px-4 py-2 bg-button text-white rounded-md hover:bg-hover transition duration-300 ease-in-out"
+    /&gt;
+              </code>
+            </pre>
+          </li>
+          <li class="text-md text-gray-700">
+            Jangan lupa tambahkan validasi dengan atribut `required` untuk memastikan pengguna mengisi data sebelum mengirim form.
+            <pre class="bg-gray-100 rounded-lg p-4 overflow-x-auto mt-2">
+              <code>
+    &lt;input type="text" id="username" name="username" required&gt;
+    &lt;input type="password" id="password" name="password" required&gt;
+              </code>
+            </pre>
+          </li>
+        </ol>
+        <div class="mt-6">
+          <a
+            href="#"
+            class="px-6 py-2 bg-button text-white rounded-md hover:bg-hover transition-all duration-300 ease-in-out"
+          >
+            Lihat Tutorial Lengkap
+          </a>
+        </div>
+      </section>
+    </div>
+    <!-- ----- TYPING JS Link ----- -->
+    <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+
+    <!-- ----- SCROLL REVEAL JS Link----- -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <!-- ----- MAIN JS ----- -->
+    <!-- <script src="js/main.js"></script> -->
+    <script>
+      var typingEffect = new Typed(".typedText", {
+        strings: ["Front End Engginer", "UI/UX Designer", "Data Science"],
+        loop: true,
+        typeSpeed: 50,
+        backSpeed: 80,
+        backDelay: 2000,
+      });
+
+      window.onscroll = function () {
+        headerShadow();
+      };
+
+      function headerShadow() {
+        const navHeader = document.getElementById("header");
+
+        if (
+          document.body.scrollTop > 50 ||
+          document.documentElement.scrollTop > 50
+        ) {
+          navHeader.style.boxShadow = "0 10px 15px -3px rgba(0, 0, 0, 0.1)";
+          navHeader.style.height = "70px";
+          navHeader.style.lineHeight = "70px";
+        } else {
+          navHeader.style.boxShadow = "none";
+          navHeader.style.height = "90px";
+          navHeader.style.lineHeight = "90px";
+        }
+      }
+    </script>
+  </body>
+</html>

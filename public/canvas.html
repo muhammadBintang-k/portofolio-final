@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- --------- UNICONS ---------- -->
+    <link
+      rel="stylesheet"
+      href="https://unicons.iconscout.com/release/v4.0.8/css/line.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unicons.iconscout.com/release/v4.0.8/css/solid.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unicons.iconscout.com/release/v4.0.0/css/line.css"
+    />
+
+    <!-- --------- CSS ---------- -->
+    <!-- tailwind CSS -->
+    <link rel="stylesheet" href="css/output.css" />
+
+    <!-- Alpine Js -->
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.1/dist/cdn.min.js"
+    ></script>
+
+    <!-- --------- FAVICON ---------- -->
+    <link
+      rel="shortcut icon"
+      href="assets/images/favicon.png"
+      type="image/x-icon"
+    />
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+    </style>
+    <title>Personal Portofolio</title>
+  </head>
+  <body class="bg-first text-gray-900">
+    <div class="container mx-auto p-4">
+      <!-- --------------- HEADER --------------- -->
+      <nav
+        id="header"
+        x-data="{ isOpen: false, scrolled: false }"
+        x-init="window.pageYOffset > 50 ? scrolled = true : scrolled = false; window.addEventListener('scroll', () => { scrolled = window.pageYOffset > 50 })"
+        :class="scrolled ? 'bg-white shadow-lg text-gray-900 h-16 pt-2' : 'bg-first h-24 text-gray-900'"
+        class="fixed top-6 left-10 right-10 rounded-full z-50 transition-all duration-300"
+      >
+        <div class="container mx-auto px-4">
+          <div class="flex justify-between items-center h-full">
+            <div class="flex items-center space-x-2">
+              <a href="#home">
+                <p class="text-2xl md:text-3xl font-bold text-hover">Bintang</p>
+              </a>
+              <span class="text-blue-500">.</span>
+            </div>
+
+            <div
+              class="hidden md:flex items-center space-x-10 md:space-x-20 font-medium"
+            >
+              <a
+                href="myown.html#home"
+                class="hover:text-blue-500 transition-all duration-300 ease-in-out text-base text-hover"
+                >Home</a
+              >
+              <div
+                x-data="{ open: false }"
+                @mouseenter="open = true"
+                @mouseleave="open = false"
+                class="relative"
+              >
+                <a
+                  href="myown.html#about"
+                  class="hover:text-blue-500 transition-all duration-300 ease-in-out text-base text-hover"
+                  >About</a
+                >
+                <div
+                  x-show="open"
+                  x-transition:enter="transition ease-out duration-200"
+                  x-transition:enter-start="opacity-0 transform scale-95"
+                  x-transition:enter-end="opacity-100 transform scale-100"
+                  x-transition:leave="transition ease-in duration-150"
+                  x-transition:leave-start="opacity-100 transform scale-100"
+                  x-transition:leave-end="opacity-0 transform scale-95"
+                  class="absolute left-0 mt-2 w-48 bg-second shadow-lg rounded-md z-10 text-sm max-h-20 overflow-y-auto"
+                >
+                  <a
+                    href="myown.html#about"
+                    class="block px-3 py-1.5 hover:bg-hover transition-all duration-300 text-sm text-hover h-10 hover:text-white"
+                    >Perkenalan</a
+                  >
+                  <a
+                    href="myown.html#about"
+                    class="block px-3 py-1.5 hover:bg-hover transition-all duration-300 text-sm text-hover h-10 hover:text-white"
+                    >Skills</a
+                  >
+                </div>
+              </div>
+
+              <div
+                x-data="{ open: false }"
+                @mouseenter="open = true"
+                @mouseleave="open = false"
+                class="relative"
+              >
+                <a
+                  href="myown.html#projects"
+                  class="hover:text-blue-500 transition-all duration-300 ease-in-out text-base text-hover"
+                  >Projects</a
+                >
+                <div
+                  x-show="open"
+                  x-transition:enter="transition ease-out duration-200"
+                  x-transition:enter-start="opacity-0 transform scale-95"
+                  x-transition:enter-end="opacity-100 transform scale-100"
+                  x-transition:leave="transition ease-in duration-150"
+                  x-transition:leave-start="opacity-100 transform scale-100"
+                  x-transition:leave-end="opacity-0 transform scale-95"
+                  class="absolute left-0 mt-2 w-64 bg-second shadow-lg rounded-md z-10 text-sm max-h-30 overflow-y-auto"
+                >
+                  <a
+                    href="https://embed.figma.com/proto/SgA70o8mUZaBF2xMDQ6Hbx/Blue-Laggon?node-id=3-2&starting-point-node-id=3%3A2&embed-host=share"
+                    target="_blank"
+                    class="block px-3 py-1.5 text-hover hover:bg-hover transition-all duration-300 text-sm h-10 hover:text-white"
+                    >Blue Lagoon Website Landing Page</a
+                  >
+                  <a
+                    href="https://www.figma.com/design/6kTECDzOTnwMPwj1FhwzQF/Rill?node-id=0-1&t=bKNxVERoFRBKlzpp-1"
+                    target="_blank"
+                    class="block px-3 py-1.5 text-hover hover:bg-hover transition-all duration-300 text-sm h-10 hover:text-white"
+                    >Cikrak Mobile Aplication</a
+                  >
+                  <a
+                    href="https://www.figma.com/proto/33J5sFDmC7lVOgFazfnRZN/Implementasi-Desctop-dan-android?node-id=39-1691&node-type=frame&t=Jsqr4F5W4D9zVJ8h-1&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=1%3A1352"
+                    target="_blank"
+                    class="block px-3 py-1.5 text-hover hover:bg-hover transition-all duration-300 text-sm h-10 hover:text-white"
+                    >Batik Kesayangan Mobile Aplication</a
+                  >
+                </div>
+              </div>
+
+              <div
+                x-data="{ open: false }"
+                @mouseenter="open = true"
+                @mouseleave="open = false"
+                class="relative"
+              >
+                <a
+                  href="myown.html#contact"
+                  class="hover:text-blue-500 transition-all duration-300 ease-in-out text-base text-hover"
+                  >Contact</a
+                >
+                <div
+                  x-show="open"
+                  x-transition:enter="transition ease-out duration-200"
+                  x-transition:enter-start="opacity-0 transform scale-95"
+                  x-transition:enter-end="opacity-100 transform scale-100"
+                  x-transition:leave="transition ease-in duration-150"
+                  x-transition:leave-start="opacity-100 transform scale-100"
+                  x-transition:leave-end="opacity-0 transform scale-95"
+                  class="absolute left-0 mt-2 w-48 bg-second shadow-lg rounded-md z-10 text-sm max-h-40 overflow-y-auto"
+                >
+                  <a
+                    href="https://www.instagram.com/muhammad_bintang.k/profilecard/?igsh=MXhpYXhnZjB5eWtv"
+                    target="_blank"
+                    class="block px-3 py-1.5 text-hover hover:bg-hover transition-all duration-300 text-sm h-10 hover:text-white"
+                  >
+                    <i class="uil uil-instagram mr-2"></i> Instagram
+                  </a>
+                  <a
+                    href="https://wa.me/62895421827822"
+                    target="_blank"
+                    class="block px-3 py-1.5 text-hover hover:bg-hover transition-all duration-300 text-sm h-10 hover:text-white"
+                  >
+                    <i class="uil uil-whatsapp mr-2"></i> WhatsApp
+                  </a>
+                  <a
+                    href="https://github.com/muhammadBintang-k"
+                    target="_blank"
+                    class="block px-3 py-1.5 text-hover hover:bg-hover transition-all duration-300 text-sm h-10 hover:text-white"
+                  >
+                    <i class="uil uil-github mr-2"></i> GitHub
+                  </a>
+                  <a
+                    href="https://www.linkedin.com/in/muhammad-bintang-b9b437292?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BQqWVi1h5QF6PFtqyeQeSng%3D%3D"
+                    target="_blank"
+                    class="block px-3 py-1.5 text-hover hover:bg-hover transition-all duration-300 text-sm h-10 hover:text-white"
+                  >
+                    <i class="uil uil-linkedin-alt mr-2"></i> LinkedIn
+                  </a>
+                </div>
+              </div>
+              <div
+                x-data="{ open: false }"
+                @mouseenter="open = true"
+                @mouseleave="open = false"
+                class="relative"
+              >
+                <a
+                  href="tutorial.html"
+                  class="hover:text-blue-500 transition-all duration-300 ease-in-out text-base text-hover"
+                  >Tutorial</a
+                >
+                <div
+                  x-show="open"
+                  x-transition:enter="transition ease-out duration-200"
+                  x-transition:enter-start="opacity-0 transform scale-95"
+                  x-transition:enter-end="opacity-100 transform scale-100"
+                  x-transition:leave="transition ease-in duration-150"
+                  x-transition:leave-start="opacity-100 transform scale-100"
+                  x-transition:leave-end="opacity-0 transform scale-95"
+                  class="absolute left-0 mt-2 w-48 bg-second shadow-lg rounded-md z-10 text-sm max-h-24"
+                >
+                  <a
+                    href="table.html"
+                    class="block px-3 py-1.5 hover:bg-hover transition-all duration-300 text-sm text-hover h-10 hover:text-white"
+                    >Tutorial Tabel</a
+                  >
+                  <a
+                    href="form.html"
+                    class="block px-3 py-1.5 hover:bg-hover transition-all duration-300 text-sm text-hover h-10 hover:text-white"
+                    >Tutorial Form</a
+                  >
+                  <a
+                    href="geolocation.html"
+                    class="block px-3 py-1.5 hover:bg-hover transition-all duration-300 text-sm text-hover h-10 hover:text-white"
+                    >Tutorial Geolocation</a
+                  >
+                  <a
+                    href="canvas.html"
+                    class="block px-3 py-1.5 hover:bg-hover transition-all duration-300 text-sm text-hover h-10 hover:text-white"
+                    >Tutorial Canvas</a
+                  >
+                  <a
+                    href="deploy.html"
+                    class="block px-3 py-1.5 hover:bg-hover transition-all duration-300 text-sm text-hover h-10 hover:text-white"
+                    >Tutorial Deploy Web</a
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div class="flex items-center space-x-4">
+              <button
+                class="px-4 md:px-6 py-2 bg-button text-white rounded-md hover:bg-hover transition-all duration-300 ease-in-out transform hover:scale-105"
+              >
+                <a
+                  href="https://drive.google.com/file/d/1izLpX0Uzcwj6PafhUrRsD9L_KfrWd7YZ/view?usp=sharing"
+                  target="_blank"
+                  >Download CV</a
+                >
+              </button>
+              <button
+                @click="isOpen = !isOpen"
+                class="md:hidden focus:outline-none"
+              >
+                <i
+                  :class="isOpen ? 'uil uil-times text-3xl' : 'uil uil-bars text-3xl'"
+                  class="transition-all duration-300 ease-in-out"
+                ></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mobile menu -->
+        <div
+          x-show="isOpen"
+          @click.away="isOpen = false"
+          x-transition:enter="transition ease-out duration-300"
+          x-transition:enter-start="opacity-0 transform -translate-y-10"
+          x-transition:enter-end="opacity-100 transform translate-y-0"
+          x-transition:leave="transition ease-in duration-200"
+          x-transition:leave-start="opacity-100 transform translate-y-0"
+          x-transition:leave-end="opacity-0 transform -translate-y-10"
+          class="absolute top-16 left-0 right-0 bg-first z-50 rounded-lg shadow-lg md:hidden"
+        >
+          <a
+            href="myown.html#home"
+            class="block py-4 px-6 text-base text-gray-800 hover:bg-gray-200 transition duration-300"
+            @click="isOpen = false"
+            >Home</a
+          >
+          <a
+            href="myown.html#about"
+            class="block py-4 px-6 text-base text-gray-800 hover:bg-gray-200 transition duration-300"
+            @click="isOpen = false"
+            >About</a
+          >
+          <a
+            href="myown.html#projects"
+            class="block py-4 px-6 text-base text-gray-800 hover:bg-gray-200 transition duration-300"
+            @click="isOpen = false"
+            >Projects</a
+          >
+          <a
+            href="myown.html#contact"
+            class="block py-4 px-6 text-base text-gray-800 hover:bg-gray-200 transition duration-300"
+            @click="isOpen = false"
+            >Contact</a
+          >
+          <a
+            href="table.html"
+            class="block py-4 px-6 text-base text-gray-800 hover:bg-gray-200 transition duration-300"
+            @click="isOpen = false"
+            >Tutorial Tabel</a
+          >
+          <a
+            href="form.html"
+            class="block py-4 px-6 text-base text-gray-800 hover:bg-gray-200 transition duration-300"
+            @click="isOpen = false"
+            >Tutorial Form</a
+          >
+          <a
+            href="geolocation.html"
+            class="block py-4 px-6 text-base text-gray-800 hover:bg-gray-200 transition duration-300"
+            @click="isOpen = false"
+            >Tutorial Geolocation</a
+          >
+          <a
+            href="canvas.html"
+            class="block py-4 px-6 text-base text-gray-800 hover:bg-gray-200 transition duration-300"
+            @click="isOpen = false"
+            >Tutorial Canvas</a
+          >
+          <a
+            href="deploy.html"
+            class="block py-4 px-6 text-base text-gray-800 hover:bg-gray-200 transition duration-300"
+            @click="isOpen = false"
+            >Tutorial Web Deploy</a
+          >
+        </div>
+      </nav>
+
+      <!-- -------------- MAIN ---------------- -->
+      <main class="wrapper z-30 pt-24">
+        <h1 class="text-3xl font-bold text-center mb-8 text-hover">
+          Tutorial Canvas
+        </h1>
+
+        <div class="flex flex-col lg:flex-row gap-6 mb-10">
+          <!-- HTML Input Area -->
+          <div class="flex-1">
+            <label class="block mb-2 font-semibold text-hover">HTML</label>
+            <textarea
+              id="html-code"
+              class="w-full h-40 p-4 border rounded shadow-md focus:outline-none bg-add"
+            >
+<body>
+                <h3 class="text3">SVG Circle</h3>
+                
+                <svg height="100" width="100">
+                  <circle
+                    cx="50"
+                    cy="50"
+                    r="40"
+                    stroke="red"
+                    stroke-width="4"
+                    fill="blue"
+                  />
+                </svg>
+
+                <h3 class="text3">SVG Logo</h3>
+                <svg height="130" width="500">
+                  <defs>
+                    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
+                      <stop
+                        offset="0%"
+                        style="stop-color: rgb(255, 255, 0); stop-opacity: 0"
+                      />
+                      <stop
+                        offset="100%"
+                        style="stop-color: rgb(255, 0, 255); stop-opacity: 1"
+                      />
+                    </linearGradient>
+                  </defs>
+                  <ellipse cx="100" cy="70" rx="85" ry="55" fill="url(#grad1)" />
+                  <text fill="green" font-size="45" font-family="Arial" x="50" y="86">
+                    UTY
+                  </text>
+                </svg>
+
+                <h3 class="text3">SVG Rectangle</h3>
+                <svg width="400" height="100">
+                  <rect
+                    width="400"
+                    height="100"
+                    style="fill: rgb(255, 0, 255); stroke-width: 10; stroke: rgb(0, 255, 0)"
+                  />
+                </svg>
+                
+                <h3 class="text3">SVG Rounded Rectangle</h3>
+                <svg width="400" height="400">
+                  <rect
+                    x="50"
+                    y="20"
+                    rx="20"
+                    ry="20"
+                    width="300"
+                    height="300"
+                    style="fill: red; stroke: rgb(224, 221, 221); stroke-width: 5; opacity: 0.5"
+                  />
+                </svg>
+
+
+                <h3 class="text3">SVG Star</h3>
+                <head>
+                  <meta charset="UTF-8" />
+                  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+                  <title>Document</title>
+                </head>
+                <body>
+                  <svg height="300" width="200">
+                    <polygon
+                      points="100,10 40,198 190,78 10,78 160,198"
+                      style="fill: rgb(230, 224, 224); stroke: red; stroke-width: 5; fill-rule: evenodd"
+                    />
+                    sorry, your browser does not support inline SVG.
+                  </svg>
+
+
+                </body></textarea
+            >
+          </div>
+          <!-- CSS Input Area -->
+          <div class="flex-1">
+            <label class="block mb-2 font-semibold text-hover">CSS</label>
+            <textarea
+              id="css-code"
+              class="w-full h-40 p-4 border rounded shadow-md focus:outline-none bg-add"
+            >
+            </textarea>
+          </div>
+          <!-- JavaScript Input Area -->
+          <div class="flex-1">
+            <label class="block mb-2 font-semibold text-hover"
+              >JavaScript</label
+            >
+            <textarea
+              id="js-code"
+              class="w-full h-40 p-4 border rounded shadow-md focus:outline-none bg-add"
+            ></textarea>
+          </div>
+        </div>
+
+        <!-- Run Button -->
+        <div class="text-center">
+          <button
+            onclick="runCode()"
+            class="px-6 py-2 font-bold rounded shadow-md"
+            style="background-color: #aab396; color: #fff8e8"
+            onmouseover="this.style.backgroundColor='#674636'"
+            onmouseout="this.style.backgroundColor='#AAB396'"
+          >
+            Run Code
+          </button>
+        </div>
+
+        <!-- Output Area -->
+        <div class="mt-10">
+          <label class="block mb-2 font-semibold" style="color: #674636"
+            >Output</label
+          >
+          <iframe
+            id="output"
+            class="w-full h-80 border rounded shadow-md"
+            style="background-color: #efefef"
+          ></iframe>
+        </div>
+      </main>
+      <!-- --------------- FOOTER --------------- -->
+      <footer class="bg-first text-hover py-8">
+        <div class="text-center space-y-4">
+          <p class="text-button text-lg md:text-xl">
+            Muhammad Bintang Karuniawan
+          </p>
+          <ul class="flex justify-center space-x-6">
+            <li>
+              <a
+                href="myown.html#home"
+                class="hover:text-button transition-all duration-300 text-hover"
+                >Home</a
+              >
+            </li>
+            <li>
+              <a
+                href="myown.html#about"
+                class="hover:text-button transition-all duration-300 text-hover"
+                >About</a
+              >
+            </li>
+            <li>
+              <a
+                href="myown.html#projects"
+                class="hover:text-button transition-all duration-300 text-hover"
+                >Projects</a
+              >
+            </li>
+            <li>
+              <a
+                href="myown.html#contact"
+                class="hover:text-button transition-all duration-300 text-hover"
+                >Contact</a
+              >
+            </li>
+          </ul>
+          <div class="flex justify-center space-x-4 mt-4">
+            <a
+              href="https://www.instagram.com/muhammad_bintang.k"
+              target="_blank"
+              class="transform hover:scale-110 transition-all duration-300 text-hover"
+            >
+              <i class="uil uil-instagram text-2xl"></i>
+            </a>
+            <a
+              href="https://www.linkedin.com/in/muhammad-bintang"
+              target="_blank"
+              class="transform hover:scale-110 transition-all duration-300 text-hover"
+            >
+              <i class="uil uil-linkedin-alt text-2xl"></i>
+            </a>
+            <a
+              href="https://wa.me/62895421827822"
+              class="transform hover:scale-110 transition-all duration-300 text-hover"
+            >
+              <i class="uil uil-whatsapp text-2xl"></i>
+            </a>
+            <a
+              href="https://github.com/muhammadBintang-k"
+              target="_blank"
+              class="transform hover:scale-110 transition-all duration-300 text-hover"
+            >
+              <i class="uil uil-github-alt text-2xl"></i>
+            </a>
+          </div>
+          <p class="text-button mt-4">
+            Copyright &copy;
+            <a
+              href="https://www.instagram.com/muhammad_bintang.k?igsh=MXhpYXhnZjB5eWtv"
+              class="hover:underline"
+              >Bintang</a
+            >
+            - All rights reserved
+          </p>
+        </div>
+      </footer>
+    </div>
+
+    <!-- ----- TYPING JS Link ----- -->
+    <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+
+    <!-- ----- SCROLL REVEAL JS Link----- -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <!-- ----- MAIN JS ----- -->
+    <!-- <script src="js/main.js"></script> -->
+
+    <script>
+      function runCode() {
+        const htmlCode = document.getElementById("html-code").value;
+        const cssCode = `<style>${
+          document.getElementById("css-code").value
+        }</style>`;
+        const jsCode = `<script>${
+          document.getElementById("js-code").value
+        }<\/script>`;
+        const outputFrame = document.getElementById("output");
+
+        outputFrame.contentDocument.body.innerHTML =
+          htmlCode + cssCode + jsCode;
+        outputFrame.contentWindow.eval(jsCode);
+      }
+    </script>
+
+    <script>
+      var typingEffect = new Typed(".typedText", {
+        strings: ["Front End Engginer", "UI/UX Designer", "Data Science"],
+        loop: true,
+        typeSpeed: 50,
+        backSpeed: 80,
+        backDelay: 2000,
+      });
+
+      window.onscroll = function () {
+        headerShadow();
+      };
+
+      function headerShadow() {
+        const navHeader = document.getElementById("header");
+
+        if (
+          document.body.scrollTop > 50 ||
+          document.documentElement.scrollTop > 50
+        ) {
+          navHeader.style.boxShadow = "0 10px 15px -3px rgba(0, 0, 0, 0.1)";
+          navHeader.style.height = "70px";
+          navHeader.style.lineHeight = "70px";
+        } else {
+          navHeader.style.boxShadow = "none";
+          navHeader.style.height = "90px";
+          navHeader.style.lineHeight = "90px";
+        }
+      }
+    </script>
+  </body>
+</html>
